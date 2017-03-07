@@ -1,0 +1,2 @@
+class PortFoliosController < ApplicationController
+end
