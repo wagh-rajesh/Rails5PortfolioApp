@@ -3,6 +3,10 @@ class PortFoliosController < ApplicationController
     @portfolio_items = PortFolio.all
   end
 
+  def ruby_on_rails
+    @ror_portfolio_items = PortFolio.ror_items
+  end
+
   def new
   	@portfolio_item = PortFolio.new
   end
