@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   resources :port_folios, except: [:show]
   get 'port_folio/:id', to: 'port_folios#show', as: 'port_folio_show'
 
-  resources :blogs
+  resources :blogs do
+  	member do
+  		get :toggle_status
+  	end
+  end
 
 end
