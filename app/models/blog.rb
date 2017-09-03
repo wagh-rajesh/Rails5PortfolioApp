@@ -7,7 +7,7 @@ class Blog < ApplicationRecord
 
 	belongs_to :topic
 
-	def self.scpecial_blogs
+	def self.special_blogs
 		all
 	end
 
