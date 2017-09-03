@@ -15,4 +15,8 @@ module ApplicationHelper
       		content_tag(:p, greeting, class: "greet-class")
     	end
 	end
+
+	def copyright_generator
+		CopyrightViewTool::Renderer.copyright "Rajesh Wagh", "All rights reserved."
+	end
 end
