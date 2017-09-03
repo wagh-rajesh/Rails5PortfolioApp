@@ -4,6 +4,8 @@ class PortFoliosController < ApplicationController
   
   layout "portfolio"
 
+  access all: [:show, :index, :ruby_on_rails], user: {except: [:destroy, :new, :create, :edit, :update]}, site_admin: :all
+
   def index
     @portfolio_items = PortFolio.all
   end
