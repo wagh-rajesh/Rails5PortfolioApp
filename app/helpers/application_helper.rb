@@ -19,4 +19,41 @@ module ApplicationHelper
 	def copyright_generator
 		CopyrightViewTool::Renderer.copyright "Rajesh Wagh", "All rights reserved."
 	end
+
+	def nav_items
+		[
+			{
+				url: root_path,
+				title: "Home"
+			},
+			{
+				url: about_path,
+				title: "About me"
+			},
+			{
+				url: contact_path,
+				title: "Contact"
+			},
+			{
+				url: blogs_path,
+				title: "Blogs"
+			},
+			{
+				url: port_folios_path,
+				title: "Portfolio"
+			},
+		]
+	end
+
+	def nav_bar_helper style=nil, tag_type
+		nav_links = ""
+		nav_items.each { |item|
+			nav_links << "<#{tag_type}><a href='#{item[:url]}' class='#{style} #{is_active? item[:url]}'>#{item[:title]}</a></#{tag_type}>"			
+		}
+		nav_links.html_safe	
+	end
+
+	def is_active? path
+		"active" if current_page? path
+	end
 end
