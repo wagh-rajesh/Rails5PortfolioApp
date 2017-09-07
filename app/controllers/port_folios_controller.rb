@@ -4,10 +4,17 @@ class PortFoliosController < ApplicationController
   
   layout "portfolio"
 
-  access all: [:show, :index, :ruby_on_rails], user: {except: [:destroy, :new, :create, :edit, :update]}, site_admin: :all
+  access all: [:show, :index, :ruby_on_rails], user: {except: [:destroy, :new, :create, :edit, :update, :sort]}, site_admin: :all
 
   def index
-    @portfolio_items = PortFolio.all
+    @portfolio_items = PortFolio.by_position
+  end
+
+  def sort
+    params[:order].each do |key, value|
+      PortFolio.find(value[:id]).update(position: value[:position])
+    end
+    render nothing: true
   end
 
   def ruby_on_rails
