@@ -9,6 +9,7 @@ class PortFolio < ApplicationRecord
 
 	scope :ror_items, -> { where(subtitle: "Ruby on Rails") }
 	scope :angular, -> { where(subtitle: "Angular") }
+	scope :by_position, -> {order("position ASC")}
 
 	after_initialize :set_defaults
 

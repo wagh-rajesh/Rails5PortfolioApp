@@ -7,7 +7,7 @@ class PortFoliosController < ApplicationController
   access all: [:show, :index, :ruby_on_rails], user: {except: [:destroy, :new, :create, :edit, :update]}, site_admin: :all
 
   def index
-    @portfolio_items = PortFolio.all
+    @portfolio_items = PortFolio.by_position
   end
 
   def ruby_on_rails
