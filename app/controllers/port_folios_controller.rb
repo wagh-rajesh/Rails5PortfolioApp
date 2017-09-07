@@ -10,6 +10,13 @@ class PortFoliosController < ApplicationController
     @portfolio_items = PortFolio.by_position
   end
 
+  def sort
+    params[:order].each do |key, value|
+      PortFolio.find(value[:id]).update(position: value[:position])
+    end
+    render nothing: true
+  end
+
   def ruby_on_rails
     @ror_portfolio_items = PortFolio.ror_items
   end
