@@ -4,6 +4,7 @@ class PortFoliosController < ApplicationController
   
   layout "portfolio"
 
+  # Petergate access control handling
   access all: [:show, :index, :ruby_on_rails], user: {except: [:destroy, :new, :create, :edit, :update, :sort]}, site_admin: :all
 
   def index
@@ -12,6 +13,7 @@ class PortFoliosController < ApplicationController
 
   def sort
     params[:order].each do |key, value|
+      # Handling drag and drop positions for portfolio items
       PortFolio.find(value[:id]).update(position: value[:position])
     end
     render nothing: true
