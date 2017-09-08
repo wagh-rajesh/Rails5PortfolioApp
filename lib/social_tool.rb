@@ -6,7 +6,7 @@ module SocialTool
 			config.access_token        = ENV.fetch("TWITTER_ACCESS_TOKEN_KEY")
 			config.access_token_secret = ENV.fetch("TWITTER_ACCESS_TOKEN_SECRET_KEY")
 		end	
-		client.search("#rubyonrails", result_type: 'recent').take(5).collect do |tweet|
+		client.search("#rubyonrails", result_type: 'recent').take(8).collect do |tweet|
 			"#{tweet.user.screen_name} : #{tweet.text}" 
 		end
 	end
