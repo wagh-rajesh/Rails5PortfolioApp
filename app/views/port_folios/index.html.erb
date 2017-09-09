@@ -1,9 +1,7 @@
 <div class="album text-muted">
 	<div class="container">
+		<%= source_helper("alert alert-info") %>
 		<div class="row <%= "sortable" if logged_in?(:site_admin)%>">
-
-			<%#= link_to "Create new Item", new_port_folio_path if logged_in?(:site_admin) %>
-
 			<%= render partial: 'portfolio_item', collection: @portfolio_items %>
 		</div>
 	</div>
